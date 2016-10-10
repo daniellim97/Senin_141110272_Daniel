@@ -1,0 +1,9 @@
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\bin\Debug\Latihan_2_1.exe.config
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.csprojResolveAssemblyReference.cache
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.Form1.resources
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.Properties.Resources.resources
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.csproj.GenerateResource.Cache
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\bin\Debug\Latihan_2_1.exe
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\bin\Debug\Latihan_2_1.pdb
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.exe
+D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.pdb
