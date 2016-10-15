@@ -7,3 +7,6 @@ D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\bin\Debug\Latihan_2_1.ex
 D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\bin\Debug\Latihan_2_1.pdb
 D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.exe
 D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.pdb
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_2_1\bin\Debug\Latihan_2_1.exe.config
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.exe
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_2_1\obj\Debug\Latihan_2_1.pdb
