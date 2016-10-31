@@ -7,6 +7,3 @@ C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latih
 C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_3_1\obj\Debug\Latihan_3_1.csproj.GenerateResource.Cache
 C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_3_1\obj\Debug\Latihan_3_1.exe
 C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_3_1\obj\Debug\Latihan_3_1.pdb
-D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_3_1\bin\Debug\Latihan_3_1.exe.config
-D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_3_1\obj\Debug\Latihan_3_1.exe
-D:\FrameworkLanjutan\Senin_141110272_Daniel\Latihan_3_1\obj\Debug\Latihan_3_1.pdb
