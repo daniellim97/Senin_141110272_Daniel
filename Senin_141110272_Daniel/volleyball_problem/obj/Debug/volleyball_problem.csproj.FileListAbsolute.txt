@@ -1,0 +1,9 @@
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\bin\Debug\volleyball_problem.exe.config
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\bin\Debug\volleyball_problem.exe
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\bin\Debug\volleyball_problem.pdb
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\obj\Debug\volleyball_problem.csprojResolveAssemblyReference.cache
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\obj\Debug\volleyball_problem.Form1.resources
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\obj\Debug\volleyball_problem.Properties.Resources.resources
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\obj\Debug\volleyball_problem.csproj.GenerateResource.Cache
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\obj\Debug\volleyball_problem.exe
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\volleyball_problem\obj\Debug\volleyball_problem.pdb
