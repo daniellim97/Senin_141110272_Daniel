@@ -1,0 +1,11 @@
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\bin\Debug\Latihan_POS.exe.config
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\bin\Debug\Latihan_POS.exe
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\bin\Debug\Latihan_POS.pdb
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.csprojResolveAssemblyReference.cache
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.Form1.resources
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.Properties.Resources.resources
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.tambahBarang.resources
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.csproj.GenerateResource.Cache
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.exe
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.pdb
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\bin\Debug\MySql.Data.dll
