@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Latihan_POS
 {
-    public partial class tambahBarang : Form
+    public partial class tambahSupplier : Form
     {
-        public tambahBarang()
+        public tambahSupplier()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace Latihan_POS
 
         void showAll()
         {
-            command = new MySqlCommand("select * from barang", conn);
+            command = new MySqlCommand("select * from supplier", conn);
             da = new MySqlDataAdapter(command);
             dt = new DataTable();
             da.Fill(dt);
@@ -51,44 +51,45 @@ namespace Latihan_POS
         {
             if (string.IsNullOrEmpty(txtKode.Text))
             {
-                MessageBox.Show("Kode barang belum diisi!");
+                MessageBox.Show("Kode Supplier belum diisi!");
                 return;
             }
             if (string.IsNullOrEmpty(txtNama.Text))
             {
-                MessageBox.Show("Nama barang belum diisi!");
+                MessageBox.Show("Nama Supplier belum diisi!");
                 return;
             }
-            
-            if (Convert.ToDecimal(txtHpp.Text)<=0)
+
+            if (string.IsNullOrEmpty(txtAlamat.Text))
             {
-                MessageBox.Show("Harga masuk tidak valid !");
+                MessageBox.Show("Alamat Supplier belum diisi!");
                 return;
             }
-            if (Convert.ToDecimal(txtJual.Text) <= 0)
+            if ((string.IsNullOrEmpty(txtTelp.Text)) && (string.IsNullOrEmpty(txtHp.Text)))
             {
-                MessageBox.Show("Harga jual tidak valid !");
+                MessageBox.Show("Mohon isi salah satu : telepon atau Hp");
                 return;
             }
-            command = new MySqlCommand("Insert into " + tabel + "(ID,Kode,Nama,JumlahAwal,HargaHPP,HargaJual,Created_at,Updated_at) values(@ID,@Kode,@Nama,@JumlahAwal,@HargaHPP,@HargaJual,@Created_at,@Updated_at);", conn);
+
+            command = new MySqlCommand("Insert into " + tabel + "(ID,Kode,Nama,Alamat,Telp,Hp,Created_at,Updated_at) values(@ID,@Kode,@Nama,@Alamat,@Telp,@Hp,@Created_at,@Updated_at);", conn);
             command.Parameters.AddWithValue("@ID", txtID.Text);
             command.Parameters.AddWithValue("@Kode", txtKode.Text.ToUpper());
             command.Parameters.AddWithValue("@Nama", txtNama.Text);
-            command.Parameters.AddWithValue("@JumlahAwal", Convert.ToInt32(txtJumlah.Text));
-            command.Parameters.AddWithValue("@HargaHPP", Convert.ToDecimal(txtHpp.Text));
-            command.Parameters.AddWithValue("@HargaJual", Convert.ToDecimal(txtJual.Text));
+            command.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+            command.Parameters.AddWithValue("@Telp", txtTelp.Text);
+            command.Parameters.AddWithValue("@Hp", txtHp.Text);
             command.Parameters.AddWithValue("@Created_at", time);
             command.Parameters.AddWithValue("@Updated_at", time);
-            command.ExecuteNonQuery();
             MessageBox.Show("Berhasil !");
+            command.ExecuteNonQuery();
             reset();
             showAll();
-            
-            
+
+
         }
         void refresh()
         {
-            int id = count_id("barang") + 1;
+            int id = count_id("supplier") + 1;
             txtID.Text = id.ToString();
             showAll();
             reset();
@@ -98,96 +99,89 @@ namespace Latihan_POS
         {
             if (string.IsNullOrEmpty(txtKode.Text))
             {
-                MessageBox.Show("Kode barang belum diisi!");
+                MessageBox.Show("Kode Supplier belum diisi!");
                 return;
             }
             if (string.IsNullOrEmpty(txtNama.Text))
             {
-                MessageBox.Show("Nama barang belum diisi!");
+                MessageBox.Show("Nama Supplier belum diisi!");
                 return;
             }
 
-            if (Convert.ToDecimal(txtHpp.Text) <= 0)
+            if (string.IsNullOrEmpty(txtAlamat.Text))
             {
-                MessageBox.Show("Harga masuk tidak valid !");
+                MessageBox.Show("Alamat Supplier belum diisi!");
                 return;
             }
-            if (Convert.ToDecimal(txtJual.Text) <= 0)
+            if ((string.IsNullOrEmpty(txtTelp.Text)) && (string.IsNullOrEmpty(txtHp.Text)))
             {
-                MessageBox.Show("Harga jual tidak valid !");
+                MessageBox.Show("Mohon isi salah satu : telepon atau Hp");
                 return;
             }
-            command = new MySqlCommand("update "+tabel+" set Kode=@Kode,Nama=@Nama,JumlahAwal=@JumlahAwal,HargaHPP=@HargaHPP,HargaJual=@HargaJual,Updated_at=@Updated_at where Kode=@Kode", conn);
+
+            command = new MySqlCommand("update " + tabel + " set Kode=@Kode,Nama=@Nama,Alamat=@Alamat,Telp=@Telp,Hp=@Hp,Updated_at=@Updated_at where Kode=@Kode", conn);
             command.Parameters.AddWithValue("@Kode", txtKode.Text.ToUpper());
             command.Parameters.AddWithValue("@Nama", txtNama.Text);
-            command.Parameters.AddWithValue("@JumlahAwal", Convert.ToInt32(txtJumlah.Text));
-            command.Parameters.AddWithValue("@HargaHPP", Convert.ToDecimal(txtHpp.Text));
-            command.Parameters.AddWithValue("@HargaJual", Convert.ToDecimal(txtJual.Text));
-            
+            command.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+            command.Parameters.AddWithValue("@Telp", txtTelp.Text);
+            command.Parameters.AddWithValue("@Hp", txtHp.Text);
             command.Parameters.AddWithValue("@Updated_at", time);
             command.ExecuteNonQuery();
             MessageBox.Show("Berhasil !");
             showAll();
             reset();
-            
+
         }
         void filterHasil()
         {
-            command = new MySqlCommand("select * from pos.barang where Kode like concat('%', @Kode, '%') and Nama like concat('%', @Nama, '%')", conn);
+            command = new MySqlCommand("select * from pos.supplier where Kode like concat('%', @Kode, '%') and Nama like concat('%', @Nama, '%')", conn);
             command.Parameters.AddWithValue("@Kode", txtKode.Text);
             command.Parameters.AddWithValue("@Nama", txtNama.Text);
             da = new MySqlDataAdapter(command);
             dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
-           
+
         }
 
         void reset()
         {
-            command = new MySqlCommand("select ifnull(max(id),0)+1 from barang", conn);
+            command = new MySqlCommand("select ifnull(max(id),0)+1 from supplier", conn);
             da = new MySqlDataAdapter(command);
             dt = new DataTable();
             da.Fill(dt);
             isi = dt.Rows[0][0].ToString();
             txtKode.Text = "";
             txtNama.Text = "";
-            txtJumlah.Text = "";
-            txtHpp.Text = "";
-            txtJual.Text = "";
-        }
-
-        private void tambahBarang_Load(object sender, EventArgs e)
-        {
-            refresh();
+            txtAlamat.Text = "";
+            txtTelp.Text = "";
+            txtHp.Text = "";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 if (txtID.Text == isi)
                 {
                     conn.Open();
-                    insertData("barang");
+                    insertData("supplier");
                 }
                 else
                 {
                     conn.Open();
-                    updateData("barang");
+                    updateData("supplier");
                 }
                 conn.Close();
-                
+
                 refresh();
 
-                
+
             }
             catch (Exception popup)
             {
                 MessageBox.Show(popup.Message);
             }
-            
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -200,7 +194,7 @@ namespace Latihan_POS
             Close();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
             {
@@ -208,21 +202,21 @@ namespace Latihan_POS
                 txtID.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 txtKode.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 txtNama.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
-                txtJumlah.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
-                txtHpp.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
-                txtJual.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
-                
+                txtAlamat.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                txtTelp.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
+                txtHp.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
+
             }
         }
 
         private void txtKode_TextChanged(object sender, EventArgs e)
         {
-            
+            filterHasil();
         }
 
-        private void txtKode_TextChanged_1(object sender, EventArgs e)
+        private void tambahSupplier_Load(object sender, EventArgs e)
         {
-            filterHasil();
+            refresh();
         }
     }
 }

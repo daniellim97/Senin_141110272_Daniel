@@ -48,6 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="editBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editBarang.Designer.cs">
+      <DependentUpon>editBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editCustomer.Designer.cs">
+      <DependentUpon>editCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editSupplier.Designer.cs">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +80,27 @@
     <Compile Include="tambahBarang.Designer.cs">
       <DependentUpon>tambahBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="tambahCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tambahCustomer.Designer.cs">
+      <DependentUpon>tambahCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tambahSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tambahSupplier.Designer.cs">
+      <DependentUpon>tambahSupplier.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="editBarang.resx">
+      <DependentUpon>editBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editCustomer.resx">
+      <DependentUpon>editCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editSupplier.resx">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +115,12 @@
     </Compile>
     <EmbeddedResource Include="tambahBarang.resx">
       <DependentUpon>tambahBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tambahCustomer.resx">
+      <DependentUpon>tambahCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tambahSupplier.resx">
+      <DependentUpon>tambahSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

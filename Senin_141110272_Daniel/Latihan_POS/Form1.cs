@@ -23,5 +23,40 @@ namespace Latihan_POS
             formTambahBarang.MdiParent = this;
             formTambahBarang.Show();
         }
+
+        private void tambahCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tambahCustomer formTambahCust = new tambahCustomer();
+            formTambahCust.MdiParent = this;
+            formTambahCust.Show();
+        }
+
+        private void tambahSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tambahSupplier formTambahSupp = new tambahSupplier();
+            formTambahSupp.MdiParent = this;
+            formTambahSupp.Show();
+        }
+
+        private void editBarangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editBarang formEditBrg = new editBarang();
+            formEditBrg.MdiParent = this;
+            formEditBrg.Show();
+        }
+
+        private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editCustomer formEditCust = new editCustomer();
+            formEditCust.MdiParent = this;
+            formEditCust.Show();
+        }
+
+        private void editSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editSupplier formEditSupp = new editSupplier();
+            formEditSupp.MdiParent = this;
+            formEditSupp.Show();
+        }
     }
 }
