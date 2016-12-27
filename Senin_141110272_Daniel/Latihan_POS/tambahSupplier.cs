@@ -17,6 +17,12 @@ namespace Latihan_POS
         {
             InitializeComponent();
         }
+        private string id;
+        private string kode;
+        private string nama;
+        private string alamat;
+        private string telp;
+        private string hp;
         classPos classPos = new classPos();
         DateTime time = DateTime.Now;
         MySqlConnection conn = new MySqlConnection("server=127.0.0.1;database=pos;Uid=root;Pwd=");
@@ -115,16 +121,22 @@ namespace Latihan_POS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count > 0)
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                int index = dataGridView1.SelectedCells[0].RowIndex;
-                txtID.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                txtKode.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
-                txtNama.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
-                txtAlamat.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
-                txtTelp.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
-                txtHp.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
 
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                kode = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                nama = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                alamat = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                telp = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                hp = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                txtID.Text = id;
+                txtKode.Text = kode;
+                txtNama.Text = nama;
+                txtAlamat.Text = alamat;
+                txtTelp.Text = telp;
+                txtHp.Text = hp;
             }
         }
 

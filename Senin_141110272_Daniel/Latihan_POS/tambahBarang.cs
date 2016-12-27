@@ -17,6 +17,12 @@ namespace Latihan_POS
         {
             InitializeComponent();
         }
+        private String id;
+        private String kode;
+        private String namaBarang;
+        private String jumlahBarang;
+        private String hpp;
+        private String jual;
         classPos classPos = new classPos();
         DateTime time = DateTime.Now;
         MySqlConnection conn = new MySqlConnection("server=127.0.0.1;database=pos;Uid=root;Pwd=");
@@ -118,17 +124,24 @@ namespace Latihan_POS
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count > 0)
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                int index = dataGridView1.SelectedCells[0].RowIndex;
-                txtID.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                txtKode.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
-                txtNama.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
-                txtJumlah.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
-                txtHpp.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
-                txtJual.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
                 
+                id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                kode = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                namaBarang = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                jumlahBarang = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                hpp = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                jual = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                txtID.Text = id;
+                txtKode.Text = kode;
+                txtNama.Text = namaBarang;
+                txtJumlah.Text = jumlahBarang;
+                txtHpp.Text = hpp;
+                txtJual.Text = jual;
             }
+            
         }
 
         private void txtKode_TextChanged(object sender, EventArgs e)
