@@ -17,6 +17,7 @@ namespace Latihan_POS
         {
             InitializeComponent();
         }
+        classPos classPos = new classPos();
         DateTime time = DateTime.Now;
         MySqlConnection conn = new MySqlConnection("server=127.0.0.1;database=pos;Uid=root;Pwd="); 
         MySqlCommand command;
@@ -55,53 +56,7 @@ namespace Latihan_POS
             reset();
             dataGridView1.ClearSelection();
         }
-        void updateData(string tabel)
-        {
-            if (string.IsNullOrEmpty(txtKode.Text))
-            {
-                MessageBox.Show("Kode barang belum diisi!");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtNama.Text))
-            {
-                MessageBox.Show("Nama barang belum diisi!");
-                return;
-            }
-
-            if (Convert.ToDecimal(txtHpp.Text) <= 0)
-            {
-                MessageBox.Show("Harga masuk tidak valid !");
-                return;
-            }
-            if (Convert.ToDecimal(txtJual.Text) <= 0)
-            {
-                MessageBox.Show("Harga jual tidak valid !");
-                return;
-            }
-            command = new MySqlCommand("update " + tabel + " set ID=@ID,Kode=@Kode,Nama=@Nama,JumlahAwal=@JumlahAwal,HargaHPP=@HargaHPP,HargaJual=@HargaJual,Updated_at=@Updated_at where ID=@ID", conn);
-            command.Parameters.AddWithValue("@ID", Convert.ToInt16(txtID.Text));
-            command.Parameters.AddWithValue("@Kode", txtKode.Text.ToUpper());
-            command.Parameters.AddWithValue("@Nama", txtNama.Text);
-            command.Parameters.AddWithValue("@JumlahAwal", Convert.ToInt32(txtJlh.Text));
-            command.Parameters.AddWithValue("@HargaHPP", Convert.ToDecimal(txtHpp.Text));
-            command.Parameters.AddWithValue("@HargaJual", Convert.ToDecimal(txtJual.Text));
-            
-            command.Parameters.AddWithValue("@Updated_at", time);
-            command.ExecuteNonQuery();
-            MessageBox.Show("Berhasil di Update !");
-            showAll();
-            reset();
-
-        }
-        void deleteData(string tabel)
-        {
-            command = new MySqlCommand("delete from " + tabel + " where ID=@ID",conn);
-            command.Parameters.AddWithValue("@ID", Convert.ToInt16(txtID.Text));
-            command.ExecuteNonQuery();
-            MessageBox.Show("Berhasil di Hapus!");
-            showAll();
-            reset();
-        }
+        
         void filterHasil()
         {
             command = new MySqlCommand("select * from pos.barang where Kode like concat('%', @Kode, '%') ", conn);
@@ -168,11 +123,10 @@ namespace Latihan_POS
 
         private void btnCari_Click(object sender, EventArgs e)
         {
-            command = new MySqlCommand("select * from barang where ID=@ID", conn);
+            command = new MySqlCommand("select * from pos.barang where ID=@ID", conn);
             command.Parameters.AddWithValue("@ID", txtID.Text);
             conn.Open();
             reader = command.ExecuteReader();
-
             if (reader.HasRows)
             {
                 muncul();
@@ -192,7 +146,6 @@ namespace Latihan_POS
                 MessageBox.Show("Barang Tidak di Temukan !");
             }
         
-            
             conn.Close();
         }
 
@@ -213,8 +166,7 @@ namespace Latihan_POS
         {
             try
             {
-                conn.Open();
-                updateData("barang");
+                classPos.updateDataBarang(txtID, txtKode, txtNama, txtJlh, txtHpp, txtJual);
                 hilang();
                 txtID.ReadOnly = false;
             }
@@ -234,19 +186,12 @@ namespace Latihan_POS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                conn.Open();
-                deleteData("barang");
+
+                classPos.deleteData("barang", txtID);
+                showAll();
+                reset();
                 hilang();
                 txtID.ReadOnly = false;
-            }
-            catch (Exception popup)
-            {
-                MessageBox.Show(popup.Message);
-            }
-
-            conn.Close();
             refresh();
         }
     }

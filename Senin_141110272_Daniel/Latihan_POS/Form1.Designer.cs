@@ -39,6 +39,7 @@
             this.editBarangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrasiToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.transaksiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(871, 24);
@@ -110,23 +112,30 @@
             // editBarangToolStripMenuItem
             // 
             this.editBarangToolStripMenuItem.Name = "editBarangToolStripMenuItem";
-            this.editBarangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editBarangToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editBarangToolStripMenuItem.Text = "Edit Barang";
             this.editBarangToolStripMenuItem.Click += new System.EventHandler(this.editBarangToolStripMenuItem_Click);
             // 
             // editCustomerToolStripMenuItem
             // 
             this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
-            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editCustomerToolStripMenuItem.Text = "Edit Customer";
             this.editCustomerToolStripMenuItem.Click += new System.EventHandler(this.editCustomerToolStripMenuItem_Click);
             // 
             // editSupplierToolStripMenuItem
             // 
             this.editSupplierToolStripMenuItem.Name = "editSupplierToolStripMenuItem";
-            this.editSupplierToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editSupplierToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editSupplierToolStripMenuItem.Text = "Edit Supplier";
             this.editSupplierToolStripMenuItem.Click += new System.EventHandler(this.editSupplierToolStripMenuItem_Click);
+            // 
+            // transaksiToolStripMenuItem
+            // 
+            this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.transaksiToolStripMenuItem.Text = "Transaksi";
+            this.transaksiToolStripMenuItem.Click += new System.EventHandler(this.transaksiToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -158,6 +167,7 @@
         private System.Windows.Forms.ToolStripMenuItem editBarangToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editSupplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem;
     }
 }
 

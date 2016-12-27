@@ -17,6 +17,7 @@ namespace Latihan_POS
         {
             InitializeComponent();
         }
+        classPos classPos = new classPos();
         DateTime time = DateTime.Now;
         MySqlConnection conn = new MySqlConnection("server=127.0.0.1;database=pos;Uid=root;Pwd=");
         string isi;
@@ -47,46 +48,7 @@ namespace Latihan_POS
             }
         }
 
-        void insertData(string tabel)
-        {
-            if (string.IsNullOrEmpty(txtKode.Text))
-            {
-                MessageBox.Show("Kode Supplier belum diisi!");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtNama.Text))
-            {
-                MessageBox.Show("Nama Supplier belum diisi!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtAlamat.Text))
-            {
-                MessageBox.Show("Alamat Supplier belum diisi!");
-                return;
-            }
-            if ((string.IsNullOrEmpty(txtTelp.Text)) && (string.IsNullOrEmpty(txtHp.Text)))
-            {
-                MessageBox.Show("Mohon isi salah satu : telepon atau Hp");
-                return;
-            }
-
-            command = new MySqlCommand("Insert into " + tabel + "(ID,Kode,Nama,Alamat,Telp,Hp,Created_at,Updated_at) values(@ID,@Kode,@Nama,@Alamat,@Telp,@Hp,@Created_at,@Updated_at);", conn);
-            command.Parameters.AddWithValue("@ID", txtID.Text);
-            command.Parameters.AddWithValue("@Kode", txtKode.Text.ToUpper());
-            command.Parameters.AddWithValue("@Nama", txtNama.Text);
-            command.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
-            command.Parameters.AddWithValue("@Telp", txtTelp.Text);
-            command.Parameters.AddWithValue("@Hp", txtHp.Text);
-            command.Parameters.AddWithValue("@Created_at", time);
-            command.Parameters.AddWithValue("@Updated_at", time);
-            MessageBox.Show("Berhasil !");
-            command.ExecuteNonQuery();
-            reset();
-            showAll();
-
-
-        }
+        
         void refresh()
         {
             int id = count_id("supplier") + 1;
@@ -95,43 +57,7 @@ namespace Latihan_POS
             reset();
             dataGridView1.ClearSelection();
         }
-        void updateData(string tabel)
-        {
-            if (string.IsNullOrEmpty(txtKode.Text))
-            {
-                MessageBox.Show("Kode Supplier belum diisi!");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtNama.Text))
-            {
-                MessageBox.Show("Nama Supplier belum diisi!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtAlamat.Text))
-            {
-                MessageBox.Show("Alamat Supplier belum diisi!");
-                return;
-            }
-            if ((string.IsNullOrEmpty(txtTelp.Text)) && (string.IsNullOrEmpty(txtHp.Text)))
-            {
-                MessageBox.Show("Mohon isi salah satu : telepon atau Hp");
-                return;
-            }
-
-            command = new MySqlCommand("update " + tabel + " set Kode=@Kode,Nama=@Nama,Alamat=@Alamat,Telp=@Telp,Hp=@Hp,Updated_at=@Updated_at where Kode=@Kode", conn);
-            command.Parameters.AddWithValue("@Kode", txtKode.Text.ToUpper());
-            command.Parameters.AddWithValue("@Nama", txtNama.Text);
-            command.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
-            command.Parameters.AddWithValue("@Telp", txtTelp.Text);
-            command.Parameters.AddWithValue("@Hp", txtHp.Text);
-            command.Parameters.AddWithValue("@Updated_at", time);
-            command.ExecuteNonQuery();
-            MessageBox.Show("Berhasil !");
-            showAll();
-            reset();
-
-        }
+        
         void filterHasil()
         {
             command = new MySqlCommand("select * from pos.supplier where Kode like concat('%', @Kode, '%') and Nama like concat('%', @Nama, '%')", conn);
@@ -160,28 +86,21 @@ namespace Latihan_POS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
+
                 if (txtID.Text == isi)
                 {
-                    conn.Open();
-                    insertData("supplier");
+                    classPos.insertData("supplier", txtID, txtKode, txtNama, txtAlamat, txtTelp, txtHp);
+                    reset();
+                    showAll();
                 }
                 else
                 {
-                    conn.Open();
-                    updateData("supplier");
+                    classPos.updateData("supplier",txtID,txtKode, txtNama, txtAlamat, txtTelp, txtHp);
+                    reset();
+                    showAll();
                 }
-                conn.Close();
-
                 refresh();
 
-
-            }
-            catch (Exception popup)
-            {
-                MessageBox.Show(popup.Message);
-            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)

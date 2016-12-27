@@ -58,5 +58,17 @@ namespace Latihan_POS
             formEditSupp.MdiParent = this;
             formEditSupp.Show();
         }
+
+        private void penjualanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void transaksiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTransaksi formTransaksi = new frmTransaksi();
+            formTransaksi.MdiParent = this;
+            formTransaksi.Show();
+        }
     }
 }

@@ -14,3 +14,4 @@ C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latih
 C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.editBarang.resources
 C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.editCustomer.resources
 C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.editSupplier.resources
+C:\Users\DANIEL-PC\Desktop\kuliah\Semester 5\Framework .NET Lanjutan\Tugas Latihan\Senin_141110272_Daniel\Latihan_POS\obj\Debug\Latihan_POS.frmTransaksi.resources
