@@ -70,5 +70,12 @@ namespace Latihan_POS
             formTransaksi.MdiParent = this;
             formTransaksi.Show();
         }
+
+        private void pembelianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTransaksiBeli formBeli = new frmTransaksiBeli();
+            formBeli.MdiParent = this;
+            formBeli.Show();
+        }
     }
 }

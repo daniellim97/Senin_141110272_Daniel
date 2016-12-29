@@ -87,6 +87,11 @@ namespace Latihan_POS
             txtJumlah.Text = "";
             txtHpp.Text = "";
             txtJual.Text = "";
+            txtID.Text = "";
+            showAll();
+            
+            int id = count_id("barang") + 1;
+            txtID.Text = id.ToString();
         }
 
         private void tambahBarang_Load(object sender, EventArgs e)

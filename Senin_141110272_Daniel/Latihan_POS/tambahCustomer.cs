@@ -88,6 +88,10 @@ namespace Latihan_POS
             txtAlamat.Text = "";
             txtTelp.Text = "";
             txtHp.Text = "";
+            txtID.Text = "";
+            showAll();
+            int id = count_id("customer") + 1;
+            txtID.Text = id.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

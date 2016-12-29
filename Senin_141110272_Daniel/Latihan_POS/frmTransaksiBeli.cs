@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Latihan_POS
 {
-    public partial class frmTransaksi : Form
+    public partial class frmTransaksiBeli : Form
     {
-        public frmTransaksi()
+        public frmTransaksiBeli()
         {
             InitializeComponent();
         }
@@ -25,11 +25,11 @@ namespace Latihan_POS
         MySqlDataAdapter da;
         MySqlDataReader reader = null;
 
-        int sisa,akhir,id;
-        
+        int sisa, akhir,id;
+
         void showAll()
         {
-            command = new MySqlCommand("select * from penjualan", conn);
+            command = new MySqlCommand("select * from pembelian", conn);
             da = new MySqlDataAdapter(command);
             dt = new DataTable();
             da.Fill(dt);
@@ -48,17 +48,18 @@ namespace Latihan_POS
                 return a;
             }
         }
-
-        public void hilangB(){
+        
+        public void hilangB()
+        {
             txtBarang.Visible = false;
             jlhBarang.Visible = false;
             totalHarga.Visible = false;
             totalHarga.ReadOnly = false;
-            label3.Visible = false;
-            label4.Visible = false;
+            label2.Visible = false;
+            label6.Visible = false;
             label5.Visible = false;
             srcBarang.Text = "";
-                   
+
         }
         public void munculB()
         {
@@ -67,30 +68,30 @@ namespace Latihan_POS
             totalHarga.Visible = true;
             totalHarga.ReadOnly = true;
             txtBarang.ReadOnly = true;
-            label3.Visible = true;
-            label4.Visible = true;
+            label2.Visible = true;
+            label6.Visible = true;
             label5.Visible = true;
         }
-        public void munculC()
+        public void munculS()
         {
-            txtCust.Visible = true;
-            label6.Visible = true;
-            srcCust.ReadOnly = true;
-            txtCust.ReadOnly = true;
+            txtSupp.Visible = true;
+            label4.Visible = true;
+            srcSupp.ReadOnly = true;
+            txtSupp.ReadOnly = true;
         }
-        public void hilangC()
+        public void hilangS()
         {
-            txtCust.Visible = false;
-            label6.Visible = false;
-            srcCust.Text = "";
-            srcCust.ReadOnly = false;
-            
+            txtSupp.Visible = false;
+            label4.Visible = false;
+            srcSupp.Text = "";
+            srcSupp.ReadOnly = false;
+
         }
-        
+
         public void write()
         {
-            srcCust.ReadOnly = false;
-            txtCust.ReadOnly = false;
+            srcSupp.ReadOnly = false;
+            txtSupp.ReadOnly = false;
         }
         public void reset()
         {
@@ -99,14 +100,13 @@ namespace Latihan_POS
             srcBarang.Text = "";
             jlhBarang.Text = "";
             totalHarga.Text = "";
-            
+
         }
-        
         void filterHasil()
         {
-            command = new MySqlCommand("select * from pos.penjualan where id_customer like concat('%', @id, '%') ", conn);
-            command.Parameters.AddWithValue("@id", srcCust.Text);
-            
+            command = new MySqlCommand("select * from pos.pembelian where id_supplier like concat('%', @id, '%') ", conn);
+            command.Parameters.AddWithValue("@id", srcSupp.Text);
+
             da = new MySqlDataAdapter(command);
             dt = new DataTable();
             da.Fill(dt);
@@ -116,78 +116,64 @@ namespace Latihan_POS
 
         private void browseB_Click(object sender, EventArgs e)
         {
-            
             command = new MySqlCommand("select * from pos.barang where id=@id", conn);
             command.Parameters.AddWithValue("@id", srcBarang.Text);
             conn.Open();
             reader = command.ExecuteReader();
-            
+
             if (reader.HasRows)
             {
-                
-                
+
+
                 while (reader.Read())
                 {
-                    
+
                     txtBarang.Text = (reader["Nama"].ToString());
-                    totalHarga.Text = reader["HargaJual"].ToString(); 
+                    totalHarga.Text = reader["HargaJual"].ToString();
                 }
                 munculB();
-
             }
             else
             {
                 MessageBox.Show("Barang Tidak di Temukan !");
-                hilangB();
             }
 
             conn.Close();
         }
 
-        private void browseC_Click(object sender, EventArgs e)
+        private void browseS_Click(object sender, EventArgs e)
         {
-            command = new MySqlCommand("select * from pos.customer where ID=@id", conn);
-            command.Parameters.AddWithValue("@id", srcCust.Text);
+            command = new MySqlCommand("select * from pos.supplier where ID=@id", conn);
+            command.Parameters.AddWithValue("@id", srcSupp.Text);
             conn.Open();
             reader = command.ExecuteReader();
 
             if (reader.HasRows)
             {
 
-                
+
                 while (reader.Read())
                 {
 
-                    txtCust.Text = (reader["Nama"].ToString());
+                    txtSupp.Text = (reader["Nama"].ToString());
 
                 }
-                munculC();
-                
-                
+                munculS();
+
             }
             else
             {
-                MessageBox.Show("Customer Tidak di Temukan !");
+                MessageBox.Show("Supplier Tidak di Temukan !");
             }
 
             conn.Close();
             filterHasil();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void jlhBarang_TextChanged(object sender, EventArgs e)
-        {
-      
-        }
-
         private void cart_Click(object sender, EventArgs e)
         {
             int skrg;
-            id = count_id("penjualan") + 1;
+            id = count_id("pembelian") + 1;
             command = new MySqlCommand("select * from pos.barang where id=@id", conn);
             command.Parameters.AddWithValue("@id", srcBarang.Text);
             conn.Close();
@@ -202,15 +188,13 @@ namespace Latihan_POS
 
                 }
                 skrg = Convert.ToInt16(jlhBarang.Text);
-                akhir = sisa - skrg;
-                if (akhir < 1)
+                akhir = sisa + skrg;
+                if (akhir < 0)
                 {
-                    MessageBox.Show("Barang tidak cukup!");
+                    MessageBox.Show("Angka Tidak Valid!");
                     conn.Close();
                     return;
                 }
-                
-                    
             }
             else
             {
@@ -224,9 +208,9 @@ namespace Latihan_POS
                 MessageBox.Show("Nama Barang belum diisi!");
                 return;
             }
-            if (string.IsNullOrEmpty(txtCust.Text))
+            if (string.IsNullOrEmpty(txtSupp.Text))
             {
-                MessageBox.Show("Nama Customer belum diisi!");
+                MessageBox.Show("Nama Supplier belum diisi!");
                 return;
             }
 
@@ -237,14 +221,14 @@ namespace Latihan_POS
             }
 
 
-            command = new MySqlCommand("Insert into pos.penjualan(id,id_customer,id_barang,namaBarang,jlhBarang,hargaBarang,waktuJual) values(@id,@idcustomer,@idbarang,@namaBarang,@jlhBarang,@hargaBarang,@waktuJual);", conn);
+            command = new MySqlCommand("Insert into pos.pembelian(id,id_supplier,id_barang,namaBarang,jlhBarang,hargaBarang,waktuBeli) values(@id,@idsupplier,@idbarang,@namaBarang,@jlhBarang,@hargaBarang,@waktuBeli);", conn);
             command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@idcustomer", srcCust.Text);
+            command.Parameters.AddWithValue("@idsupplier", srcSupp.Text);
             command.Parameters.AddWithValue("@idbarang", srcBarang.Text);
             command.Parameters.AddWithValue("@namaBarang", txtBarang.Text);
             command.Parameters.AddWithValue("@jlhBarang", Convert.ToInt16(jlhBarang.Text));
             command.Parameters.AddWithValue("@hargaBarang", Convert.ToDecimal(totalHarga.Text));
-            command.Parameters.AddWithValue("@waktuJual", time);
+            command.Parameters.AddWithValue("@waktuBeli", time);
 
 
             try
@@ -252,13 +236,12 @@ namespace Latihan_POS
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();
-                MessageBox.Show("Barang berhasil dijual!");
-
-                command = new MySqlCommand("update pos.barang set JumlahAwal=@JumlahAwal where ID=@id;", conn);
-                command.Parameters.AddWithValue("@JumlahAwal", akhir);
-                command.Parameters.AddWithValue("@id", Convert.ToInt16(srcBarang.Text));
+                MessageBox.Show("Barang berhasil dibeli!");
                 
-
+                command = new MySqlCommand("update pos.barang set JumlahAwal=@sisa,HargaJual=@hpp where ID=@ID;", conn);
+                command.Parameters.AddWithValue("@sisa", akhir);
+                command.Parameters.AddWithValue("@ID", Convert.ToInt16(srcBarang.Text));
+                command.Parameters.AddWithValue("@hpp", Convert.ToDecimal(totalHarga.Text));
 
                 try
                 {
@@ -281,25 +264,22 @@ namespace Latihan_POS
             reset();
             hilangB();
             filterHasil();
-
+ 
         }
 
-        private void beli_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmTransaksi_Load(object sender, EventArgs e)
+        private void frmTransaksiBeli_Load(object sender, EventArgs e)
         {
             write();
             hilangB();
-            hilangC();
+            hilangS();
         }
 
         private void clear_Click(object sender, EventArgs e)
         {
             hilangB();
-            hilangC();
+            hilangS();
         }
+
+
     }
 }

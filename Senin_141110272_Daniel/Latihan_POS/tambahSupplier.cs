@@ -88,6 +88,10 @@ namespace Latihan_POS
             txtAlamat.Text = "";
             txtTelp.Text = "";
             txtHp.Text = "";
+            txtID.Text = "";
+            showAll();
+            int id = count_id("supplier") + 1;
+            txtID.Text = id.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -121,6 +125,21 @@ namespace Latihan_POS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void txtKode_TextChanged(object sender, EventArgs e)
+        {
+            filterHasil();
+        }
+
+        private void tambahSupplier_Load(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
 
@@ -138,16 +157,6 @@ namespace Latihan_POS
                 txtTelp.Text = telp;
                 txtHp.Text = hp;
             }
-        }
-
-        private void txtKode_TextChanged(object sender, EventArgs e)
-        {
-            filterHasil();
-        }
-
-        private void tambahSupplier_Load(object sender, EventArgs e)
-        {
-            refresh();
         }
     }
 }

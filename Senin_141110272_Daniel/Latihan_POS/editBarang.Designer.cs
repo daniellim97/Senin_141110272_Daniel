@@ -47,9 +47,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtSrc = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -207,7 +207,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 34);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(857, 400);
+            this.tabControl1.Size = new System.Drawing.Size(867, 400);
             this.tabControl1.TabIndex = 16;
             // 
             // tabPage1
@@ -244,18 +244,19 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(849, 374);
+            this.tabPage2.Size = new System.Drawing.Size(859, 374);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "List";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // txtSrc
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(836, 304);
-            this.dataGridView1.TabIndex = 0;
+            this.txtSrc.Location = new System.Drawing.Point(318, 19);
+            this.txtSrc.Multiline = true;
+            this.txtSrc.Name = "txtSrc";
+            this.txtSrc.Size = new System.Drawing.Size(244, 25);
+            this.txtSrc.TabIndex = 2;
+            this.txtSrc.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label7
             // 
@@ -266,14 +267,13 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Cari Berdasarkan Kode";
             // 
-            // txtSrc
+            // dataGridView1
             // 
-            this.txtSrc.Location = new System.Drawing.Point(318, 19);
-            this.txtSrc.Multiline = true;
-            this.txtSrc.Name = "txtSrc";
-            this.txtSrc.Size = new System.Drawing.Size(244, 25);
-            this.txtSrc.TabIndex = 2;
-            this.txtSrc.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 64);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(846, 304);
+            this.dataGridView1.TabIndex = 0;
             // 
             // label8
             // 
@@ -289,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 446);
+            this.ClientSize = new System.Drawing.Size(891, 446);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tabControl1);
             this.Name = "editBarang";
