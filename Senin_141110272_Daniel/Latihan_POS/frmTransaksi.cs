@@ -203,7 +203,7 @@ namespace Latihan_POS
                 }
                 skrg = Convert.ToInt16(jlhBarang.Text);
                 akhir = sisa - skrg;
-                if (akhir < 1)
+                if (akhir < 0 )
                 {
                     MessageBox.Show("Barang tidak cukup!");
                     conn.Close();
@@ -230,9 +230,9 @@ namespace Latihan_POS
                 return;
             }
 
-            if (string.IsNullOrEmpty(jlhBarang.Text))
+            if (string.IsNullOrEmpty(jlhBarang.Text) || jlhBarang.Text == "0")
             {
-                MessageBox.Show("Jumlah Barang belum diisi!");
+                MessageBox.Show("Jumlah Barang belum diisi atau tidak valid!");
                 return;
             }
 
